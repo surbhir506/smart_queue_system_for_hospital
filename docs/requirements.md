@@ -1,5 +1,3 @@
-# Smart Queue & Appointment Load Balancer (Hospital)
-
 ## 1. Project Overview
 
 Hospitals often struggle with long and unpredictable patient waiting times despite having appointment systems in place. Delays caused by emergencies, extended consultations, or staff unavailability result in overcrowding, poor patient experience, and inefficient resource utilization.
