@@ -103,6 +103,7 @@ The system supports the following user roles:
 
 ### 5.1 Appointment Booking Workflow
 Patient → Select Department → Select Doctor → Select Time Slot
+
 → Slot Available?
 
 ├─ Yes → Appointment Confirmed
@@ -114,7 +115,9 @@ Patient → Select Department → Select Doctor → Select Time Slot
 
 ### 5.2 Queue Management Workflow
 Waiting → In Queue → In Consultation → Completed
+
 ↓
+
 No-show → Skipped
 
 
