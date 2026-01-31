@@ -1,8 +1,26 @@
-1️⃣ Problem Statement
+# Smart Queue & Appointment Load Balancer (Hospital)
 
-In hospitals, patients often face long and unpredictable waiting times even after booking appointments. Delays caused by emergencies, extended consultations, or staff unavailability lead to overcrowding, frustration, and inefficient use of hospital resources. Patients lack real-time visibility into queue status, while hospital staff do not have intelligent tools to dynamically redistribute appointments and balance service load. This system aims to provide a secure, real-time, and adaptive appointment and queue management platform to reduce waiting time, improve patient experience, and optimize hospital operations.
+## 1. Project Overview
 
-2️⃣ User Roles (Hospital Specific)
+Hospitals often struggle with long and unpredictable patient waiting times despite having appointment systems in place. Delays caused by emergencies, extended consultations, or staff unavailability result in overcrowding, poor patient experience, and inefficient resource utilization.
+
+This project aims to build a **secure, intelligent, and scalable Smart Queue & Appointment Load Balancer** for hospitals. The system will provide real-time queue visibility to patients and enable hospital staff to dynamically manage appointments, queues, and service loads.
+
+---
+
+## 2. Problem Statement
+
+In hospital environments, patients frequently experience long waiting periods even after booking appointments. Existing systems lack real-time queue tracking, intelligent delay handling, and load redistribution mechanisms. Hospital staff also lack tools to proactively manage appointment overruns and balance patient load across doctors or time slots.
+
+This system addresses these challenges by providing:
+- Real-time queue tracking
+- Intelligent appointment load balancing
+- Secure, role-based access
+- Actionable analytics for hospital administration
+
+---
+
+## 3. User Roles
 
 The system supports the following user roles:
 
@@ -31,143 +49,134 @@ The system supports the following user roles:
 
 ---
 
-3️⃣ Core Functional Features 
+## 4. Functional Requirements
 
-🔐 A. Authentication & Security
+### 4.1 Authentication & Authorization
+- Secure login and registration
+- JWT-based authentication
+- Refresh token mechanism
+- Role-based authorization
+- Secure logout
 
-Patient / Doctor / Staff / Admin login
+---
 
-JWT-based authentication
+### 4.2 Appointment Management
+- Department-wise appointment booking
+- Doctor availability and slot management
+- Slot capacity enforcement
+- Waitlist handling for full slots
+- Appointment cancellation and rescheduling
 
-Refresh token handling
+---
 
-Role-based access control
+### 4.3 Smart Queue Management
+- Automatic queue generation per doctor
+- FIFO (First-In-First-Out) queue handling
+- Priority handling for emergency cases
+- Queue states:
+  - Waiting
+  - In Queue
+  - In Consultation
+  - Completed
+  - No-show / Skipped
+- Real-time queue position visibility for patients
 
-Secure logout
+---
 
-📅 B. Appointment Management
+### 4.4 Load Balancing & Delay Handling
+- Detection of doctor delays
+- Automatic rescheduling of affected appointments
+- Reassignment to alternate doctors within the same department
+- Dynamic queue recalculation
+- Patient notifications for any changes
 
-Department-wise booking (e.g., Cardiology, OPD)
+---
 
-Doctor availability slots
+### 4.5 Admin Dashboard & Analytics
+- Daily appointment volume
+- Average waiting time per doctor
+- Peak hours analysis
+- No-show statistics
+- Department-wise load distribution
 
-Slot capacity enforcement
+---
 
-Waitlist when slots are full
+## 5. System Workflows
 
-Appointment cancel & reschedule
+### 5.1 Appointment Booking Workflow
+Patient → Select Department → Select Doctor → Select Time Slot
+→ Slot Available?
+├─ Yes → Appointment Confirmed
+└─ No → Added to Waitlist
 
-📌 Real-world rule:
 
-A doctor can handle only N patients per slot.
+---
 
-⏳ C. Smart Queue Management
-
-Automatic queue creation per doctor
-
-FIFO queue ordering
-
-Priority handling (emergency patients)
-
-Queue states:
-
-Waiting
-
-In Queue
-
-In Consultation
-
-Completed
-
-No-show / Skipped
-
-Real-time queue position for patients
-
-⚖️ D. Load Balancing Logic (Key Feature)
-
-Detect doctor delay (late start / long consultation)
-
-Auto-shift patients to:
-
-Next available slot
-
-Another doctor in same department
-
-Update queue dynamically
-
-Notify affected patients
-
-📌 This is what makes your project non-trivial.
-
-📊 E. Hospital Admin Dashboard
-
-Daily appointment count
-
-Average waiting time per doctor
-
-Peak hours
-
-Missed / no-show appointments
-
-Department-wise load
-
-4️⃣ Workflow Definitions 
-
-🧭 Appointment Booking Flow
-Patient → Select Department → Select Doctor → Select Slot
-        → Slot Available?
-            ├─ Yes → Appointment Confirmed
-            └─ No  → Added to Waitlist
-
-🧭 Queue Flow (Doctor Side)
+### 5.2 Queue Management Workflow
 Waiting → In Queue → In Consultation → Completed
-                     ↓
-                  No-show → Skipped
+↓
+No-show → Skipped
 
-🧭 Delay & Load Balancing Flow
+
+---
+
+### 5.3 Delay & Load Balancing Workflow
 Delay Detected
-   ↓
+↓
 Recalculate Queue
-   ↓
-Reschedule / Reassign
-   ↓
-Notify Patients
+↓
+Reschedule or Reassign Appointment
+↓
+Notify Patient
 
 
-📌 These flows will directly become backend logic later.
+---
 
-5️⃣ Non-Functional Requirements
+## 6. Non-Functional Requirements
 
-🔒 Security
+### 6.1 Security
+- JWT and refresh token-based authentication
+- Role-based API protection
+- Secure password hashing
+- No sensitive data exposure in logs
+- HTTPS enforcement
 
-JWT + Refresh Tokens
+---
 
-Role-based API protection
+### 6.2 Performance
+- Efficient queue position lookup
+- Support for concurrent appointment bookings
+- Optimized database queries
 
-No sensitive data in logs
+---
 
-HTTPS enforced
+### 6.3 Scalability
+- Stateless backend APIs
+- Ready for future real-time updates (SignalR)
+- Extensible architecture for caching and scaling
 
-⚡ Performance
+---
 
-Fast queue position lookup
+### 6.4 Reliability
+- Global exception handling
+- Audit logs for critical actions
+- Transaction safety during appointment booking
 
-Handle concurrent bookings
+---
 
-Optimized DB queries
+## 7. Success Criteria
 
-📈 Scalability
+The project will be considered successful if:
+- Patients can clearly see queue positions and delays
+- Appointment overruns are handled automatically
+- Hospital staff can manage load effectively
+- The system is secure, scalable, and maintainable
+- The project can be confidently explained in technical interviews
 
-Stateless backend APIs
+---
 
-Easily extensible to SignalR
-
-Future Redis caching support
-
-🛡 Reliability
-
-Global exception handling
-
-Audit logs for critical actions
-
-Transaction safety for bookings
+## 8. Future Enhancements (Out of Scope for Now)
+- SMS / Email notifications
+- Mobile application
+- Integration with hospital EMR systems
+- AI-based delay prediction
