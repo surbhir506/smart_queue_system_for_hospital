@@ -125,11 +125,17 @@ No-show → Skipped
 
 ### 5.3 Delay & Load Balancing Workflow
 Delay Detected
+
 ↓
+
 Recalculate Queue
+
 ↓
+
 Reschedule or Reassign Appointment
+
 ↓
+
 Notify Patient
 
 
