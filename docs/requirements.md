@@ -12,7 +12,8 @@ Doctor	Views assigned queue, marks patients as in-service/completed
 Receptionist (Staff)	Manages slots, handles delays, assists patients
 Admin	Manages users, doctors, departments, analytics
 
-3️⃣ Core Functional Features (Locked Scope)
+3️⃣ Core Functional Features 
+
 🔐 A. Authentication & Security
 
 Patient / Doctor / Staff / Admin login
@@ -91,7 +92,8 @@ Missed / no-show appointments
 
 Department-wise load
 
-4️⃣ Workflow Definitions (Very Important)
+4️⃣ Workflow Definitions 
+
 🧭 Appointment Booking Flow
 Patient → Select Department → Select Doctor → Select Slot
         → Slot Available?
@@ -115,7 +117,8 @@ Notify Patients
 
 📌 These flows will directly become backend logic later.
 
-5️⃣ Non-Functional Requirements (Enterprise Thinking)
+5️⃣ Non-Functional Requirements
+
 🔒 Security
 
 JWT + Refresh Tokens
