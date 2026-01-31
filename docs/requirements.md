@@ -4,13 +4,32 @@ In hospitals, patients often face long and unpredictable waiting times even afte
 
 2️⃣ User Roles (Hospital Specific)
 
-These roles are realistic and commonly used in hospital software.
+The system supports the following user roles:
 
-Role	Description
-Patient	Books appointments, views queue position, receives notifications
-Doctor	Views assigned queue, marks patients as in-service/completed
-Receptionist (Staff)	Manages slots, handles delays, assists patients
-Admin	Manages users, doctors, departments, analytics
+### 3.1 Patient
+- Register and log in securely
+- Book appointments
+- View appointment and queue status
+- Receive notifications for delays or rescheduling
+
+### 3.2 Doctor
+- View assigned appointments and queues
+- Update patient status (In Consultation, Completed)
+- Mark no-shows
+
+### 3.3 Receptionist (Staff)
+- Manage appointment slots
+- Handle walk-ins
+- Detect and manage delays
+- Assist patients with rescheduling
+
+### 3.4 Admin
+- Manage users and roles
+- Configure departments and doctors
+- View analytics and reports
+- Monitor system health
+
+---
 
 3️⃣ Core Functional Features 
 
